@@ -1,15 +1,17 @@
-import cart from './cart.png'
 import logo_black from './logo_black.png'
-import search from './search.png'
 import close from './close.png'
-import google from './google.png'
+import profile from './profile.png'
+import add from './add.png'
+import task from './task.png'
+import package1 from './package1.png'
 
 export const assets = {
-    cart,
     logo_black,
-    search,
     close,
-    google
+    profile,
+    add,
+    task,
+    package1
 }
 
 

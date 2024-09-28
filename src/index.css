@@ -43,7 +43,7 @@ hr {
   background-color: white;
 }
 
-.app {
-  width: 80%;
-  margin: auto;
+.app-content{
+  display: flex;
+  
 }
