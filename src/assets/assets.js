@@ -4,6 +4,7 @@ import profile from './profile.png'
 import add from './add.png'
 import task from './task.png'
 import package1 from './package1.png'
+import upload from './upload.png'
 
 export const assets = {
     logo_black,
@@ -11,7 +12,8 @@ export const assets = {
     profile,
     add,
     task,
-    package1
+    package1,
+    upload
 }
 
 

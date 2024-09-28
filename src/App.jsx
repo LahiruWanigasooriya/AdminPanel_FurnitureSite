@@ -1,14 +1,15 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Sidebar from './components/Sidebar/Sidebar'
-import { Routes,Route } from 'react-router-dom'
+import { Routes,Route} from 'react-router-dom'
 import Add from './pages/Add/Add'
 import List from './pages/List/List'
 import Orders from './pages/Orders/Orders'
 
 const App = () => {
   return (
-    <div><Navbar />
+    <div>
+      <Navbar />
       <hr />
       <div className='app-content'>
         <Sidebar />
