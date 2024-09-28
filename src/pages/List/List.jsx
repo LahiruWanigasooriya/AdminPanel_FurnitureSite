@@ -3,8 +3,8 @@ import './List.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const List = ({url}) => {
-  
+const List = ({ url }) => {
+
   const [list, setList] = useState([]); // Initialize state to store the list of items
 
 
@@ -26,10 +26,10 @@ const List = ({url}) => {
   const removeItem = async (itemId) => {
     const response = await axios.post(`${url}/api/endpoint`, { id: itemId }) // Replace '/endpoint' with the correct path
     await fetchList();
-    if(response.data.success){
+    if (response.data.success) {
       toast.success(response.data.message);
     }
-    else{
+    else {
       toast.error("Error");
     }
   }
