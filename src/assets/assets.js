@@ -5,6 +5,9 @@ import add from './add.png'
 import task from './task.png'
 import package1 from './package1.png'
 import upload from './upload.png'
+import cart from './cart.png'
+import search from './search.png'
+import google from './google.png'
 
 export const assets = {
     logo_black,
@@ -13,7 +16,10 @@ export const assets = {
     add,
     task,
     package1,
-    upload
+    upload,
+    cart,
+    search,
+    google
 }
 
 

@@ -1,4 +1,4 @@
-.sidebar{
+.Adminsidebar{
     width: 18%;
     min-height: 100vh;
     border: 1.5px solid var(--ash);
@@ -6,7 +6,7 @@
     font-size: max(1vw, 10px);
 }
 
-.sidebar-options{
+.Adminsidebar-options{
     padding-top: 50px;
     padding-left: 20%;
     display: flex;
@@ -14,11 +14,11 @@
     gap: 20px;
 }
 
-.sidebar-icon{
+.Adminsidebar-icon{
     width: 20%;
 }
 
-.sidebar-option{
+.Adminsidebar-option{
     display: flex;
     align-items: center;
     gap: 12px;
@@ -29,12 +29,12 @@
     cursor: pointer;
 }
 
-.sidebar-option.active{
+.Adminsidebar-option.active{
     background-color:var(--lightbrown);
     border-color: var(--darkbrown);
 }
 @media (max-width: 900px) {
-    .sidebar-option p{
+    .Adminsidebar-option p{
         display: none;
     }
 }
