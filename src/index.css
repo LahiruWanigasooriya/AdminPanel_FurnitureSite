@@ -44,17 +44,17 @@ hr {
   box-shadow: #D9D9D9 1px 3px 5px;
 }
 
-.app-content {
+.app-content{
   display: flex;
   font-family: candara;
 }
 
-.flex-col {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 10px;
+.flex-col{
+display:inline-flex;
+flex-direction: column;
+gap: 10px;
 }
 
-.curser {
+.curser{
   cursor: pointer;
 }
