@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import './Add.css';
-import { assets } from '../../assets/assets'
 import axios from 'axios';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import { assets } from '../../assets/assets';
+import './Add.css';
 
 const Add = ({url}) => {
  
@@ -11,7 +11,7 @@ const Add = ({url}) => {
         name: "",
         description: "",
         price: "",
-        category: "Table"
+        category: ""
     })
 
     const onChangeHandler = (event) => {
@@ -22,25 +22,48 @@ const Add = ({url}) => {
 
     const onSubmitHandler = async (event) => {
         event.preventDefault();
-        const formData = new FormData();
-        formData.append("name", data.name);
-        formData.append("description", data.description);
-        formData.append("price", Number(data.price));
-        formData.append("category", data.category);
-        formData.append("image", data.image);
-        const response = await axios.post(`${url}/api/`,formData) //endpoint where we upload the product
+        const itemData = {
+            name: data.name,
+            description: data.description,
+            price: Number(data.price), // Ensure price is sent as a number
+            category: data.category,
+        };
+    
+        // const formData = new FormData();
+        // formData.append("name", data.name);
+        // formData.append("description", data.description);
+        // formData.append("price", Number(data.price));
+        // formData.append("category", data.category);
+        // for (let [key, value] of formData.entries()) {
+        //     console.log(`${key}: ${value}`);
+        // }
+        // formData.append("image", data.image);
+        // const response = await axios.post(`${url}/api/`,formData) //endpoint where we upload the product
+        // console.log("Posting to:", '/admin/addItem');
+        const response = await axios.post('http://localhost:3001/admin/addItem',itemData);
+            // headers: 
+            //     'Content-Type': 'multipart/form-data' // Set the correct content type for form data
+            // }
+       
+
+
     if(response.data.success){
         setData({
             name: "",
             description: "",
             price: "",
-            category: "Table"
+            category: ""
         })
+        console.log('Data sent:', itemData); 
+        //  for (let [key, value] of formData.entries()) {
+        //     console.log(`${key}: ${value}`);
+        // }
+        // console.log(data);
         setImage(false)
         toast.success(response.data.message) //display message when item added successfully
     }
     else{
-toast.error(response.data.message) //display message when item not added successfully
+    toast.error(response.data.message) //display message when item not added successfully
     }
     }
 
@@ -53,7 +76,7 @@ toast.error(response.data.message) //display message when item not added success
                     <label htmlFor='image'>
                         <img src={image ? URL.createObjectURL(image) : assets.upload} alt='upload' />
                     </label>
-                    <input onChange={(e) => setImage(e.target.files[0])} type='file' id='image' hidden required />
+                    <input onChange={(e) => setImage(e.target.files[0])} type='file' id='image' hidden  />
                 </div>
 
                 <div className='add-img-upload flex-col'>
@@ -61,12 +84,12 @@ toast.error(response.data.message) //display message when item not added success
                     <label htmlFor='image'>
                         <img src={image ? URL.createObjectURL(image) : assets.upload} alt='upload' />
                     </label>
-                    <input onChange={(e) => setImage(e.target.files[0])} type='file' id='image' hidden required />
+                    <input onChange={(e) => setImage(e.target.files[0])} type='file' id='image' hidden  />
                 </div>
 
                 <div className='add-product-name flex-col'>
                     <p>Product Name :</p>
-                    <input onChange={onChangeHandler} value={data.name} type='text' name='name' placeholder='Type your item name here' required />
+                    <input onChange={onChangeHandler} value={data.name} type='text' name='name' placeholder='Type your item name here' autoComplete="name" required />
                 </div>
 
                 <div className='add-product-description flex-col'>
