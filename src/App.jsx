@@ -7,17 +7,19 @@ import LoginPopUp from './components/LoginPopUp/UserLoginPopUp';
 
 const App = () => {
 
-const[showLogin, setShowLogin] = React.useState(false)
+  const [showLogin, setShowLogin] = React.useState(false)
 
   return (
     <>
-    {showLogin?<LoginPopUp setShowLogin={setShowLogin}/>:<></>}
-    <div className='app'>
-      <NavBar setShowLogin={setShowLogin}/>
-    </div>
+      {showLogin ? <LoginPopUp setShowLogin={setShowLogin} /> : <></>}
+      <div className='app'>
+        <NavBar setShowLogin={setShowLogin} />
+      </div>
     </>
 
   )
 }
 
 export default App;
+
+//test
