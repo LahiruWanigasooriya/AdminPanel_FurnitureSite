@@ -1,30 +1,23 @@
 import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Sidebar from './components/Sidebar/Sidebar'
-import { Routes,Route} from 'react-router-dom'
-import Add from './pages/Add/Add'
-import List from './pages/List/List'
-import Orders from './pages/Orders/Orders'
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import NavBar from './components/NavBar/NavBar';
+import LoginPopUp from './components/LoginPopUp/UserLoginPopUp';
+//import "./App.css"
+
+//import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 const App = () => {
-  const url = "http://localhost:4000";
+
+const[showLogin, setShowLogin] = React.useState(false)
+
   return (
-    <div>
-      <ToastContainer/>
-      <Navbar />
-      <hr />
-      <div className='app-content'>
-        <Sidebar />
-        <Routes>
-          <Route path="/add" element={<Add url={url}/>}/>
-          <Route path="/list" element={<List url={url}/>}/>
-          <Route path="/orders" element={<Orders url={url}/>}/>
-        </Routes>
-      </div>
+    <>
+    {showLogin?<LoginPopUp setShowLogin={setShowLogin}/>:<></>}
+    <div className='app'>
+      <NavBar setShowLogin={setShowLogin}/>
     </div>
+    </>
+
   )
 }
 
-export default App
+export default App;
